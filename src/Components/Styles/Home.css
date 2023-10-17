@@ -1,0 +1,17 @@
+#home{
+    overflow: hidden;
+}
+
+#text{
+    font-size: 55px;
+    color: #470303;
+}
+
+#secondtext{
+    font-size: 19px;
+    color: rgb(45, 3, 83);
+}
+
+.video{
+    height: 550px;
+}
