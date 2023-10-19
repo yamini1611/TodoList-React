@@ -13,3 +13,10 @@ code {
   font-family:font ;
   src: url('../src/Components/Assets/Fonts/WorkSans-Regular.ttf');
 }
+#errorpage{
+  overflow-x: hidden;
+}
+
+#errorfw{
+  font-size: 52px;
+}

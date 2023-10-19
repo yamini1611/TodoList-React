@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { Form, Input, Label, Container, Button } from "reactstrap";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
-import "../Components/Styles/Register.css";
+import "./Styles/Register.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
@@ -33,12 +33,12 @@ const Register = () => {
     onSubmit: async (values) => {
       try {
         const response = await axios.post(
-          "http://localhost:4000/Registered",
+          "https://localhost:44353/api/Users",
           {
-            email: values.email,
-            password: values.password,
-            Username: values.Username,
-            phone: values.phone,
+            Email: values.email,
+            Password: values.password,
+            Name: values.Username,
+            Phone: values.phone,
           }
         );
 
@@ -47,6 +47,7 @@ const Register = () => {
           const user = response.data;
           console.log("user details ", user);
           toast.success("Registered Successfully!");
+
           setTimeout(() => {
             Navigate("/Login");
           }, 2000);
@@ -77,7 +78,7 @@ const Register = () => {
               onBlur={formik.handleBlur}
             />
             {formik.touched.email && formik.errors.email && (
-              <p className="text-danger">{formik.errors.email}</p>
+              <p className="text-danger text-center">{formik.errors.email}</p>
             )}
           </div>
           <div className="mb-3">
@@ -91,7 +92,7 @@ const Register = () => {
               onBlur={formik.handleBlur}
             />
             {formik.touched.password && formik.errors.password && (
-              <p className="text-danger">{formik.errors.password}</p>
+              <p className="text-danger text-center">{formik.errors.password}</p>
             )}
           </div>
   
@@ -106,7 +107,7 @@ const Register = () => {
               onBlur={formik.handleBlur}
             />
             {formik.touched.Username && formik.errors.Username && (
-              <p className="text-danger">{formik.errors.Username}</p>
+              <p className="text-danger text-center">{formik.errors.Username}</p>
             )}
           </div>
           <div className="mb-3">
@@ -121,14 +122,17 @@ const Register = () => {
               onBlur={formik.handleBlur}
             />
             {formik.touched.phone && formik.errors.phone && (
-              <p className="text-danger">{formik.errors.phone}</p>
+              <p className="text-danger text-center">{formik.errors.phone}</p>
             )}
           </div>
   
-          {error && <p className="text-danger">{error}</p>}
-          <Button type="submit" className="btn-dark mt-3">
-            Register
+          {error && <p className="text-danger text-center">{error}</p>}
+         
+         <div className="text-center">
+         <Button type="submit" className="btn-dark mt-3 justify-content-center">
+            Register <i className="fa-solid fa-user-plus"></i>
           </Button>
+          </div> 
           <h6 className="mt-3 text-center">
             Already have an Account?{" "}
             <Link to="/Login" id="link">

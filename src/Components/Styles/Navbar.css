@@ -4,6 +4,7 @@ background-color: black;
 
 .nav-link{
     color :antiquewhite;
+    font-size: 19px;
 }
 
 .nav-link:hover{
